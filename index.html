@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Style Photo Generator</title>
+</head>
+<body>
+    <h1>Upload Your Image</h1>
+    <input type="file" id="upload">
+    <button onclick="uploadImage()">Generate</button>
+    <img id="output" alt="Ghibli Style Image" />
+
+    <script>
+        async function uploadImage() {
+            let fileInput = document.getElementById('upload');
+            let file = fileInput.files[0];
+            let formData = new FormData();
+            formData.append("image", file);
+
+            let response = await fetch("https://your-backend-api.com/generate", {
+                method: "POST",
+                body: formData
+            });
+
+            let data = await response.json();
+            document.getElementById('output').src = data.imageUrl;
+        }
+    </script>
+</body>
+</html>
