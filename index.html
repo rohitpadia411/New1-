@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghibli Style Photo Generator</title>
+    <title>Ghibli Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload Your Image</h1>
-    <input type="file" id="upload">
-    <button onclick="uploadImage()">Generate</button>
-    <img id="output" alt="Ghibli Style Image" />
-
-    <script>
-        async function uploadImage() {
-            let fileInput = document.getElementById('upload');
-            let file = fileInput.files[0];
-            let formData = new FormData();
-            formData.append("image", file);
-
-            let response = await fetch("https://your-backend-api.com/generate", {
-                method: "POST",
-                body: formData
-            });
-
-            let data = await response.json();
-            document.getElementById('output').src = data.imageUrl;
-        }
-    </script>
+    <h1>Studio Ghibli Art Gallery</h1>
+    <div class="gallery">
+        <img src="images/image1.jpg" alt="Ghibli Art 1">
+        <img src="images/image2.jpg" alt="Ghibli Art 2">
+        <img src="images/image3.jpg" alt="Ghibli Art 3">
+    </div>
 </body>
 </html>
